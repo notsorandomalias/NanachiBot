@@ -11,7 +11,11 @@ async def on_ready():
     print("Fired up and ready to go~")
 
 @bot.command()
-async def c(ctx):
+async def crab(ctx):
     await ctx.send(file=File('crabrave.gif'))
+
+@bot.command()
+async def penis(ctx, arg):
+    await ctx.send(file=File('penis privileges.jpg'))
 
 bot.run(token)
