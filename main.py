@@ -15,7 +15,7 @@ async def crab(ctx):
     await ctx.send(file=File('crabrave.gif'))
 
 @bot.command()
-async def p(ctx, arg):
+async def p(ctx):
     await ctx.send(file=File('peepeepriv.jpg'))
 
 bot.run(token)
