@@ -1,7 +1,9 @@
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix='?')
-token = 'NzA2Mzk2MDk1NTA4NTEyNzY4.Xq5pSA.B0EvxUeEI2_PknRs-5RsPO93PSo'
+token_file = open('token.txt', 'r')
+token = token_file.readline()
+token_file.close()
 
 @bot.event
 async def on_ready():
