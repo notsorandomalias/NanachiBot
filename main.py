@@ -1,9 +1,9 @@
+from discord import File
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix='?')
-token_file = open('token.txt', 'r')
-token = token_file.readline()
-token_file.close()
+with open('token.txt', 'r') as token_file:
+    token = token_file.readline()
 
 @bot.event
 async def on_ready():
@@ -11,7 +11,7 @@ async def on_ready():
     print("Fired up and ready to go~")
 
 @bot.command()
-async def crab(ctx, arg):
-    await ctx.send("{} is gone".format(arg))
+async def c(ctx):
+    await ctx.send(file=File('crabrave.gif'))
 
 bot.run(token)
