@@ -1,11 +1,15 @@
 from discord import File
 from discord.ext import commands
-from PIL import Image, ImageDraw, ImageFont, ImageSequence
-from io import BytesIO
+from boto.s3.connection import S3Connection
+import os
+#from PIL import Image, ImageDraw, ImageFont, ImageSequence
+#from io import BytesIO
 
 bot = commands.Bot(command_prefix='?')
-with open('token.txt', 'r') as token_file:
-    token = token_file.readline()
+try:
+    token = S3Connection(os.environ["NANACHIBOT_TOKEN"])
+except:
+    token = os.environ["NANACHIBOT_TOKEN"]
 
 '''
 def crabwrite(file):
