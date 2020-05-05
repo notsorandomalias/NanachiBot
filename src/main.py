@@ -19,7 +19,7 @@ async def crab(ctx):
 
 @bot.command()
 async def p(ctx):
-    await ctx.send(file=File('peepeepriv.jpg'))
+    await ctx.send(file=File('srcmedia/peepeepriv.jpg'))
 
 @bot.command()
 async def ping(ctx):
