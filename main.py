@@ -14,12 +14,12 @@ async def on_ready():
 
 @bot.command()
 async def crab(ctx):
-    try:
-        hello()
-        await ctx.send(file=File('test.gif'))
-        os.remove('test.gif')
-    except:
-        await ctx.send("Error: Failed to send a gif of a crab rave rendered in Unreal Engine 4 in 4k. sad crabs")
+    #try:
+    hello()
+    await ctx.send(file=File('test.gif'))
+    os.remove('test.gif')
+    #except:
+    #    await ctx.send("Error: Failed to send a gif of a crab rave rendered in Unreal Engine 4 in 4k. sad crabs")
 
 @bot.command()
 async def p(ctx):
