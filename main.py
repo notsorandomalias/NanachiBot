@@ -7,6 +7,18 @@ import os
 bot = commands.Bot(command_prefix='?')
 token = os.environ.get("DISCORD_TOKEN")
 
+def hello():
+    with Drawing() as draw:
+        with Image(filename='src/crabrave.gif') as image:
+            draw.font = 'src/impact.ttf'
+            draw.font_size = 50
+            
+            for i in range(len(image.sequence)):
+                draw.text(int(image.sequence[i].width / 4), int(image.sequence[i].height / 2), 'Hello, world!')
+                draw(image.sequence[i])
+
+            image.save(filename='test.gif')
+
 @bot.event
 async def on_ready():
     print("Logged in as {0.user}".format(bot))
@@ -30,15 +42,3 @@ async def ping(ctx):
     await ctx.send('pong')
 
 bot.run(token)
-
-def hello():
-    with Drawing() as draw:
-        with Image(filename='src/crabrave.gif') as image:
-            draw.font = 'src/impact.ttf'
-            draw.font_size = 50
-            
-            for i in range(102):
-                draw.text(int(image.sequence[i].width / 4), int(image.sequence[i].height / 2), 'Hello, world!')
-                draw(image.sequence[i])
-
-            image.save(filename='test.gif')
