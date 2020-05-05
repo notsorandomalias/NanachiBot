@@ -23,7 +23,7 @@ async def crab(ctx):
 
 @bot.command()
 async def p(ctx):
-    await ctx.send(file=File('srcmedia/peepeepriv.jpg'))
+    await ctx.send(file=File('src/peepeepriv.jpg'))
 
 @bot.command()
 async def ping(ctx):
@@ -34,7 +34,7 @@ bot.run(token)
 def hello():
     with Drawing() as draw:
         with Image(filename='src/crabrave.gif') as image:
-            draw.font = 'impact.ttf'
+            draw.font = 'src/impact.ttf'
             draw.font_size = 50
             
             for i in range(102):
