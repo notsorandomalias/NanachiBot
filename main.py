@@ -28,6 +28,8 @@ async def on_message(message):
         mention = message.author.mention
         response = f"{mention} please shut the fuck up."
         await message.channel.send(response)
+    
+    if 'poog ' in message.content.lower():
         mention = message.author.mention
         response = f"{mention} please shut the fuck up."
         await message.channel.send(response)
