@@ -7,14 +7,14 @@ import os
 bot = commands.Bot(command_prefix='?')
 token = os.environ.get("DISCORD_TOKEN")
 
-def hello():
+def hello(string):
     with Drawing() as draw:
         with Image(filename='src/crabrave.gif') as image:
             draw.font = 'src/impact.ttf'
             draw.font_size = 50
             
             for i in range(len(image.sequence)):
-                draw.text(int(image.sequence[i].width / 4), int(image.sequence[i].height / 2), 'Hello, world!')
+                draw.text(0, 0, string)
                 draw(image.sequence[i])
 
             image.save(filename='test.gif')
@@ -25,9 +25,9 @@ async def on_ready():
     print("Fired up and ready to go~")
 
 @bot.command()
-async def crab(ctx):
+async def crab(ctx, arg):
     #try:
-    hello()
+    hello(arg)
     await ctx.send(file=File('test.gif'))
     os.remove('test.gif')
     #except:
@@ -40,5 +40,9 @@ async def p(ctx):
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
+
+@bot.event()
+async def on_message(message):
+    await bot.send_message("{} please shut the fuck up.".format(bot.author.mention))
 
 bot.run(token)
