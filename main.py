@@ -39,6 +39,36 @@ async def on_message(message):
         response = f"{mention} please shut the fuck up."
         await message.channel.send(response)
     
+    elif ' pooger ' in message.content.lower():
+        mention = message.author.mention
+        response = f"{mention} please shut the fuck up."
+        await message.channel.send(response)
+
+    elif ' pooger' in message.content.lower():
+        mention = message.author.mention
+        response = f"{mention} please shut the fuck up."
+        await message.channel.send(response)
+
+    elif 'pooger ' in message.content.lower():
+        mention = message.author.mention
+        response = f"{mention} please shut the fuck up."
+        await message.channel.send(response)
+
+    elif ' poogers' in message.content.lower():
+        mention = message.author.mention
+        response = f"{mention} please shut the fuck up."
+        await message.channel.send(response)
+
+    elif ' poogers' in message.content.lower():
+        mention = message.author.mention
+        response = f"{mention} please shut the fuck up."
+        await message.channel.send(response)
+
+    elif 'poogers ' in message.content.lower():
+        mention = message.author.mention
+        response = f"{mention} please shut the fuck up."
+        await message.channel.send(response)
+    
     await bot.process_commands(message)
 
 @bot.event
