@@ -14,7 +14,7 @@ def hello(string):
             draw.font_size = 50
             
             for i in range(len(image.sequence)):
-                draw.text(0, 0, string)
+                draw.text(100, 100, string)
                 draw(image.sequence[i])
 
             image.save(filename='test.gif')
@@ -24,7 +24,15 @@ async def on_message(message):
     if message.author == bot.user or message.author.bot:
         return
 
-    if 'poog' in message.content:
+    if ' poog ' in message.content.lower():
+        mention = message.author.mention
+        response = f"{mention} please shut the fuck up."
+        await message.channel.send(response)
+        mention = message.author.mention
+        response = f"{mention} please shut the fuck up."
+        await message.channel.send(response)
+        
+    elif ' poog' in message.content.lower():
         mention = message.author.mention
         response = f"{mention} please shut the fuck up."
         await message.channel.send(response)
@@ -37,9 +45,9 @@ async def on_ready():
     print("Fired up and ready to go~")
 
 @bot.command()
-async def crab(ctx, arg):
+async def crab(ctx, text:str):
     #try:
-    hello(arg)
+    hello(text)
     await ctx.send(file=File('test.gif'))
     os.remove('test.gif')
     #except:
