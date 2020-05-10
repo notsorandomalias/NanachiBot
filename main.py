@@ -43,6 +43,9 @@ async def ping(ctx):
 
 @bot.event
 async def on_message(message):
+    if message.author == bot.user or message.author.bot:
+        return
+
     if 'poogers' or 'pooger' in message.content:
         mention = message.author.mention
         response = f"{mention} please shut the fuck up."
