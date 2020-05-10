@@ -41,8 +41,11 @@ async def p(ctx):
 async def ping(ctx):
     await ctx.send('pong')
 
-@bot.event()
+@bot.event
 async def on_message(message):
-    await bot.send_message("{} please shut the fuck up.".format(bot.author.mention))
+    if 'poogers' or 'pooger' in message.content:
+        mention = message.author.mention
+        response = f"{mention} please shut the fuck up."
+        await message.channel.send(response)
 
 bot.run(token)
