@@ -20,6 +20,20 @@ def hello(string):
             image.save(filename='test.gif')
 
 @bot.event
+async def on_message(message):
+    if message.author == bot.user or message.author.bot:
+        return
+
+    if 'poogers' in message.content:
+        mention = message.author.mention
+        response = f"{mention} please shut the fuck up."
+        await message.channel.send(response)
+    elif 'pooger' in message.content:
+        mention = message.author.mention
+        response = f"{mention} please shut the fuck up."
+        await message.channel.send(response)
+
+@bot.event
 async def on_ready():
     print("Logged in as {0.user}".format(bot))
     print("Fired up and ready to go~")
@@ -40,19 +54,5 @@ async def p(ctx):
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
-
-@bot.event
-async def on_message(message):
-    if message.author == bot.user or message.author.bot:
-        return
-
-    if 'poogers' in message.content:
-        mention = message.author.mention
-        response = f"{mention} please shut the fuck up."
-        await message.channel.send(response)
-    elif 'pooger' in message.content:
-        mention = message.author.mention
-        response = f"{mention} please shut the fuck up."
-        await message.channel.send(response)
 
 bot.run(token)
