@@ -11,7 +11,7 @@ async def on_message(message):
     if message.author == bot.user or message.author.bot:
         return
 
-    result = re.match('\bpooger', message, re.IGNORECASE)
+    result = re.match('\bpooger', message)
 
     if result in message.content.lower():
         authormention = message.author.mention
