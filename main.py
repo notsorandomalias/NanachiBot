@@ -6,18 +6,6 @@ import re
 bot = commands.Bot(command_prefix='?')
 token = os.environ.get("DISCORD_TOKEN")
 
-def hello(string):
-    with Drawing() as draw:
-        with Image(filename='src/crabrave.gif') as image:
-            draw.font = 'src/impact.ttf'
-            draw.font_size = 50
-            
-            for i in range(len(image.sequence)):
-                draw.text(100, 100, string)
-                draw(image.sequence[i])
-
-            image.save(filename='test.gif')
-
 @bot.event
 async def on_message(message):
     if message.author == bot.user or message.author.bot:
@@ -26,7 +14,8 @@ async def on_message(message):
     result = re.match('\bpooger', message, re.IGNORECASE)
 
     if result in message.content.lower():
-        response = f"{message.author.mention} please shut the fuck up."
+        authormention = message.author.mention
+        response = f"{authormention} please shut the fuck up."
         await message.channel.send(response)
 
 @bot.event
