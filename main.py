@@ -3,6 +3,7 @@ from discord.ext import commands
 from wand.image import Image
 from wand.drawing import Drawing
 import os
+import re
 
 bot = commands.Bot(command_prefix='?')
 token = os.environ.get("DISCORD_TOKEN")
@@ -24,52 +25,11 @@ async def on_message(message):
     if message.author == bot.user or message.author.bot:
         return
 
-    if ' poog ' in message.content.lower():
-        mention = message.author.mention
-        response = f"{mention} please shut the fuck up."
-        await message.channel.send(response)
-    
-    if 'poog ' in message.content.lower():
-        mention = message.author.mention
-        response = f"{mention} please shut the fuck up."
-        await message.channel.send(response)
-        
-    elif ' poog' in message.content.lower():
-        mention = message.author.mention
-        response = f"{mention} please shut the fuck up."
-        await message.channel.send(response)
-    
-    elif ' pooger ' in message.content.lower():
-        mention = message.author.mention
-        response = f"{mention} please shut the fuck up."
-        await message.channel.send(response)
+    result = re.match('\bpooger', message, re.IGNORECASE)
 
-    elif ' pooger' in message.content.lower():
-        mention = message.author.mention
-        response = f"{mention} please shut the fuck up."
+    if result in message.content.lower():
+        response = f"{message.author.mention} please shut the fuck up."
         await message.channel.send(response)
-
-    elif 'pooger ' in message.content.lower():
-        mention = message.author.mention
-        response = f"{mention} please shut the fuck up."
-        await message.channel.send(response)
-
-    elif ' poogers' in message.content.lower():
-        mention = message.author.mention
-        response = f"{mention} please shut the fuck up."
-        await message.channel.send(response)
-
-    elif ' poogers' in message.content.lower():
-        mention = message.author.mention
-        response = f"{mention} please shut the fuck up."
-        await message.channel.send(response)
-
-    elif 'poogers ' in message.content.lower():
-        mention = message.author.mention
-        response = f"{mention} please shut the fuck up."
-        await message.channel.send(response)
-    
-    await bot.process_commands(message)
 
 @bot.event
 async def on_ready():
