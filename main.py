@@ -1,7 +1,5 @@
 from discord import File
 from discord.ext import commands
-from wand.image import Image
-from wand.drawing import Drawing
 import os
 import re
 
@@ -38,12 +36,11 @@ async def on_ready():
 
 @bot.command()
 async def crab(ctx, text:str):
-    #try:
-    hello(text)
-    await ctx.send(file=File('test.gif'))
-    os.remove('test.gif')
-    #except:
-    #    await ctx.send("Error: Failed to send a gif of a crab rave rendered in Unreal Engine 4 in 4k. sad crabs")
+    try:
+        await ctx.send(file=File('src/crabrave.gif'))
+        os.remove('test.gif')
+    except:
+        await ctx.send("Error: Failed to send a gif of a crab rave rendered in Unreal Engine 4 in 4k. sad crabs")
 
 @bot.command()
 async def p(ctx):
