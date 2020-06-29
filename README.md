@@ -1,2 +1,1 @@
 # NanachiBot
-Hosted on Heroku
